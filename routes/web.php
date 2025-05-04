@@ -1,21 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 use App\Http\Controllers\ProductController;
-
 
 // Homepage / New Arrivals
 Route::get('/', [ProductController::class, 'newArrivals'])->name('home');
 Route::get('/new-arrivals', [ProductController::class, 'newArrivals'])->name('newArrivals');
 
-// Category Pages (placeholders for now)
+// Fragrances Page
+Route::get('/fragrances', [ProductController::class, 'fragrances'])->name('fragrances');
+
+// Product Page (placeholder)
+Route::get('/product/{name}', fn($name) => redirect('/'))->name('product');
+
+// Category Pages (placeholders)
 Route::get('/leather-goods', fn() => redirect('/'))->name('leatherGoods');
-Route::get('/fragrances', fn() => redirect('/'))->name('fragrances');
 Route::get('/accessories', fn() => redirect('/'))->name('accessories');
 
 // User Pages
