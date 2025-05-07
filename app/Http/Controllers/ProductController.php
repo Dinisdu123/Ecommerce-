@@ -45,4 +45,16 @@ class ProductController extends Controller
 
         return view('leather-goods', compact('shoulderBag', 'miniBags', 'backpacks', 'wallets'));
     }
+    public function accessories()
+    {
+        $jewelleries = Product::where('Category', 'accessories')
+                            ->where('SubCategory', 'jwelleries')
+                            ->get(['Name', 'Price', 'ImageUrl']);
+
+        $footwear = Product::where('Category', 'accessories')
+                          ->where('SubCategory', 'footwear')
+                          ->get(['Name', 'Price', 'ImageUrl']);
+
+        return view('accessories', compact('jewelleries', 'footwear'));
+    }
 }

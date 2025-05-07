@@ -16,8 +16,8 @@ Route::get('/product/{name}', fn($name) => redirect('/'))->name('product');
 // Lether goods Page
 Route::get('/leather-goods', [ProductController::class, 'leatherGoods'])->name('leatherGoods');
 
-// Accessories Page (placeholder)
-Route::get('/accessories', fn() => redirect('/'))->name('accessories');
+// Accessories Page 
+Route::get('/accessories', [ProductController::class, 'accessories'])->name('accessories');
 
 // User Pages
 Route::get('/cart', fn() => redirect('/'))->name('cart');
