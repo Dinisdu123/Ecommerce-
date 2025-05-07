@@ -13,8 +13,10 @@ Route::get('/fragrances', [ProductController::class, 'fragrances'])->name('fragr
 // Product Page (placeholder)
 Route::get('/product/{name}', fn($name) => redirect('/'))->name('product');
 
-// Category Pages (placeholders)
-Route::get('/leather-goods', fn() => redirect('/'))->name('leatherGoods');
+// Lether goods Page
+Route::get('/leather-goods', [ProductController::class, 'leatherGoods'])->name('leatherGoods');
+
+// Accessories Page (placeholder)
 Route::get('/accessories', fn() => redirect('/'))->name('accessories');
 
 // User Pages

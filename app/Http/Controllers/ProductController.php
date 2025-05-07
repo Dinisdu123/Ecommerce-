@@ -25,4 +25,24 @@ class ProductController extends Controller
 
         return view('fragrances', compact('mens', 'ladies'));
     }
+    public function leatherGoods()
+    {
+        $shoulderBag = Product::where('Category', 'leather goods')
+                            ->where('SubCategory', 'shoulder bags')
+                            ->get(['Name', 'Price', 'ImageUrl']);
+
+        $miniBags = Product::where('Category', 'leather goods')
+                          ->where('SubCategory', 'minibags')
+                          ->get(['Name', 'Price', 'ImageUrl']);
+
+        $backpacks = Product::where('Category', 'leather goods')
+                           ->where('SubCategory', 'backpacks')
+                           ->get(['Name', 'Price', 'ImageUrl']);
+
+        $wallets = Product::where('Category', 'leather goods')
+                         ->where('SubCategory', 'wallets')
+                         ->get(['Name', 'Price', 'ImageUrl']);
+
+        return view('leather-goods', compact('shoulderBag', 'miniBags', 'backpacks', 'wallets'));
+    }
 }
